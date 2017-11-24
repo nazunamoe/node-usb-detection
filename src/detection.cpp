@@ -48,8 +48,8 @@ void NotifyAdded(ListResultItem_t* it) {
 	if (isAddedRegistered){
 		v8::Local<v8::Value> argv[1];
 		v8::Local<v8::Object> item = Nan::New<v8::Object>();
-		item->Set(Nan::New<v8::String>(OBJECT_ITEM_VENDOR_ID).ToLocalChecked(), Nan::New<v8::Number>(it->vendorId));
-		item->Set(Nan::New<v8::String>(OBJECT_ITEM_PRODUCT_ID).ToLocalChecked(), Nan::New<v8::Number>(it->productId));
+		item->Set(it->vendorId);
+		item->Set(it->productId);
 		argv[0] = item;
 
 		addedCallback->Call(1, argv);
